@@ -86,7 +86,7 @@ void Device::Execute(Task* task) {
   TaskPost(task);
   if (hook_task_post_) hook_task_post_(task);
 //  if (++q_ >= nqueues_) q_ = 0;
-  if (!task->system()) _trace("task[%lu:%s] complete dev[%d][%s] time[%lf] end:[%lf]", task->uid(), task->name(), devno(), name(), task->time(), task->time_end());
+  if (!task->system()) _info("task[%lu:%s] complete dev[%d][%s] time[%lf] end:[%lf]", task->uid(), task->name(), devno(), name(), task->time(), task->time_end());
 #ifdef IRIS_SYNC_EXECUTION
   task->Complete();
 #endif
